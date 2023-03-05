@@ -10,7 +10,6 @@ const OpacitySlider = () => {
 
     const handleImageDirectorySelect = async (event) => {
         const fileList = event.target.files;
-        console.log({fileList})
         // create an array to hold the data URLs
         const urls = {};
       
@@ -28,7 +27,6 @@ const OpacitySlider = () => {
             //strip the extention off of the file name
             const fileName = name.substring(0, name.lastIndexOf('.'));
 
-            console.log({fileName});
             // check if the file name ends with _1 or _2
             if (!fileName.endsWith('_1') && !fileName.endsWith('_2')) {
                 continue;
@@ -36,16 +34,12 @@ const OpacitySlider = () => {
 
             // get the part of the file name before the last underscore
             const imgName = fileName.substring(0, fileName.lastIndexOf('_'));
-            console.log({imgName, dataUrl});
             if (!urls[imgName]) {
                 urls[imgName] = { img1: dataUrl };
             } else if (urls[imgName].img1) {
                 urls[imgName].img2 = dataUrl;
             }
         }
-      
-        // do something with the array of data URLs
-        console.log(urls);
 
         return Object.entries(urls).map(([key, value]) => value);
 
