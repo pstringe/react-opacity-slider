@@ -10,7 +10,7 @@ const OpacitySlider = () => {
 
     const handleImageDirectorySelect = async (event) => {
         const fileList = event.target.files;
-      
+        console.log({fileList})
         // create an array to hold the data URLs
         const urls = [];
       
