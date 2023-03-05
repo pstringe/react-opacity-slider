@@ -1,0 +1,6 @@
+.opacity-slider {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

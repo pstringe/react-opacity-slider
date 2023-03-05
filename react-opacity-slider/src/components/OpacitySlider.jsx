@@ -50,7 +50,7 @@ const OpacitySlider = () => {
         setDataUrls(urls);
     }
 
-    const onSliderChange = (value) => {
+    const onSliderChange = (event, value) => {
         setOpacity(value);
     }
 
@@ -64,7 +64,7 @@ const OpacitySlider = () => {
 
     return ( dataUrls.length ? (<>
         <ImagePairs imagePair={dataUrls[imagePairIndex]} opacity={opacity}/>
-        <Slider onSliderChange={onSliderChange} onClickBack={onClickBack} onClickForward={onClickForward}/>
+        <Slider onChange={onSliderChange} onClickBack={onClickBack} onClickForward={onClickForward}/>
     </>) 
     : <Upload onUpload={handleUpload}/>);
 }
