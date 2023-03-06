@@ -2,8 +2,9 @@ import { useState } from "react";
 import ImagePairs from "./ImagePairs";
 import Slider from "./Slider";
 import Upload from "./Upload";
+import styles from "../styles/OpacityView.module.css";
 
-const OpacitySlider = () => {
+const OpacityView = () => {
     const [dataUrls, setDataUrls] = useState([]);
     const [imagePairIndex, setImagePairIndex] = useState(0);
     const [opacity, setOpacity] = useState(0.5);
@@ -62,11 +63,16 @@ const OpacitySlider = () => {
         setImagePairIndex(Math.min(dataUrls.length - 1, imagePairIndex + 1));
     }
 
-    return ( dataUrls.length ? (<>
-        <ImagePairs imagePair={dataUrls[imagePairIndex]} opacity={opacity}/>
-        <Slider onChange={onSliderChange} onClickBack={onClickBack} onClickForward={onClickForward}/>
-    </>) 
-    : <Upload onUpload={handleUpload}/>);
+    return ( 
+    <div className="opacity-view">{dataUrls.length ? (
+        <div className="image-interface" styles={styles.imageInterface}>
+            <ImagePairs imagePair={dataUrls[imagePairIndex]} opacity={opacity}/>
+            <Slider onChange={onSliderChange} onClickBack={onClickBack} onClickForward={onClickForward}/>
+        </div>) 
+        : <Upload onUpload={handleUpload}/>
+    }
+    </div>
+    );
 }
  
-export default OpacitySlider;
+export default OpacityView;

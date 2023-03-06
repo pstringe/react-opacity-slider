@@ -1,10 +1,10 @@
 import logo from './logo.svg';
-import OpacitySlider from './components/OpacitySlider';
+import OpacityView from './components/OpacityView';
 
 function App() {
   return (
     <div className="App">
-      <OpacitySlider />
+      <OpacityView />
     </div>
   );
 }
