@@ -25,13 +25,12 @@ const ImagePairs = ({ imagePair, opacity }) => {
 
     return (
         <div className="image-pairs" style={imagePairStyles}>
-        <div style={{ flex: 1, position: 'relative' }}>
-            <OpacityImage src={imagePair.img1} opacity={transformation1(opacity)} />
-            <div style={{ ...overlayStyles}}>
-            <OpacityImage src={imagePair.img2} opacity={transformation2(opacity)} />
+            <div style={{ flex: 1, position: 'relative' }}>
+                <OpacityImage src={imagePair.img1} opacity={transformation1(opacity)} />
+                <div style={{ ...overlayStyles}}>
+                <OpacityImage src={imagePair.img2} opacity={transformation2(opacity)} />
+                </div>
             </div>
-        </div>
-     
         </div>
     );
 }
