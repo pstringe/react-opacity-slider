@@ -1,13 +1,16 @@
+import {Document, Page} from 'react-pdf/dist/esm/entry.webpack5';
+;
+
 const OpacityPdf = ({src, opacity}) => {
     const style = { 
         opacity: opacity, 
-        width: 200,
-        height: 200,
     };
  
     return ( 
         <div className="opacity-image">
-           Opacity Pdf       
+           <Document file={src}>
+                <Page pageNumber={1} style={style} /> 
+            </Document>    
         </div>
     );
 }
