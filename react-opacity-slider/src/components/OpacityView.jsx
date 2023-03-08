@@ -29,21 +29,30 @@ const OpacityView = () => {
             const fileName = name.substring(0, name.lastIndexOf('.'));
 
             // check if the file name ends with _1 or _2
-            if (!fileName.endsWith('_1') && !fileName.endsWith('_2')) {
+            const isFile1 = fileName.endsWith('_1');
+            const isFile2 = fileName.endsWith('_2');
+            if (!isFile1 && !isFile2) {
+                console.log(`File ${fileName} is not a valid image pair`);
                 continue;
             }
 
             // get the part of the file name before the last underscore
             const imgName = fileName.substring(0, fileName.lastIndexOf('_'));
-            if (!urls[imgName]) {
-                urls[imgName] = { img1: dataUrl };
-            } else if (urls[imgName].img1) {
+            urls[imgName] = !urls[imgName] ?  { fileName: imgName, fileType: file.type } : urls[imgName];
+            if (isFile1) {
+                console.log({ isFile1, file: urls[imgName]});
+                urls[imgName].img1 = dataUrl;
+            }
+            if (isFile2) {
+                console.log({ isFile2, file: urls[imgName]});
                 urls[imgName].img2 = dataUrl;
             }
+            console.log({urls})
         }
 
-        return Object.entries(urls).map(([key, value]) => value);
-
+        const data = Object.values(urls);
+        console.log(data);
+        return data;
     };
   
     const handleUpload = async (event) => {
@@ -56,15 +65,17 @@ const OpacityView = () => {
     }
 
     const onClickBack = () => {
+        console.log({imagePairIndex})
         setImagePairIndex(Math.max(0, imagePairIndex - 1));
     }
 
     const onClickForward = () => {
+        console.log({imagePairIndex})
         setImagePairIndex(Math.min(dataUrls.length - 1, imagePairIndex + 1));
     }
 
     return ( 
-    <div className="opacity-view">{dataUrls.length ? (
+    <div className="opacity-view" styles={styles.opacityView}>{dataUrls.length ? (
         <div className="image-interface" styles={styles.imageInterface}>
             <ImagePairs imagePair={dataUrls[imagePairIndex]} opacity={opacity}/>
             <Slider onChange={onSliderChange} onClickBack={onClickBack} onClickForward={onClickForward}/>

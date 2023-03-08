@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import './App.css';
 import OpacityView from './components/OpacityView';
 
 function App() {
