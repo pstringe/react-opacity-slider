@@ -3,6 +3,7 @@ import ImagePairs from "./ImagePairs";
 import Slider from "./Slider";
 import Upload from "./Upload";
 import styles from "../styles/OpacityView.module.css";
+import PdfPairs from "./PdfPairs";
 
 const OpacityView = () => {
     const [dataUrls, setDataUrls] = useState([]);
@@ -38,6 +39,8 @@ const OpacityView = () => {
 
             // get the part of the file name before the last underscore
             const imgName = fileName.substring(0, fileName.lastIndexOf('_'));
+
+            //instanciate the object that will contain the dataUrls if it doesn't exist.
             urls[imgName] = !urls[imgName] ?  { fileName: imgName, fileType: file.type } : urls[imgName];
             if (isFile1) {
                 console.log({ isFile1, file: urls[imgName]});
@@ -74,14 +77,21 @@ const OpacityView = () => {
         setImagePairIndex(Math.min(dataUrls.length - 1, imagePairIndex + 1));
     }
 
+    const renderPairs = (pair, opacity) => {
+        return pair.fileType === "application/pdf" ? 
+        <PdfPairs pdfPair={pair} opacity={opacity}/> : 
+        <ImagePairs imagePair={pair} opacity={opacity}/>;
+
+    }
+
     return ( 
-    <div className="opacity-view" styles={styles.opacityView}>{dataUrls.length ? (
+    <div className="opacity-view" styles={styles.opacityView}> {
+        dataUrls.length ? (
         <div className="image-interface" styles={styles.imageInterface}>
-            <ImagePairs imagePair={dataUrls[imagePairIndex]} opacity={opacity}/>
+            {renderPairs(dataUrls[imagePairIndex], opacity)}
             <Slider onChange={onSliderChange} onClickBack={onClickBack} onClickForward={onClickForward}/>
         </div>) 
-        : <Upload onUpload={handleUpload}/>
-    }
+        : <Upload onUpload={handleUpload}/>}
     </div>
     );
 }

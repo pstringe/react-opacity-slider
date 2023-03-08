@@ -1,5 +1,4 @@
-
-import OpacityImage from "./OpacityImage";
+import OpacityPdf from "./OpacityPdf";
 
 const imagePairStyles = {
     display: 'flex',
@@ -19,19 +18,19 @@ const overlayStyles = {
     height: '100%',
 }
 
-const ImagePairs = ({ imagePair, opacity }) => {
+const PdfPairs = ({ pdfPair, opacity }) => {
     const transformation1 = (x) => (-x + 100) / 100;
     const transformation2 = (x) => x / 100;
     return (
         <div className="image-pairs" style={imagePairStyles}>
             <div style={{ flex: 1, position: 'relative' }}>
-                <OpacityImage src={imagePair.img1} opacity={transformation1(opacity)} />
+                <OpacityPdf src={pdfPair.img1} opacity={transformation1(opacity)} />
                 <div style={{ ...overlayStyles}}>
-                <OpacityImage src={imagePair.img2} opacity={transformation2(opacity)} />
+                <OpacityPdf src={pdfPair.img2} opacity={transformation2(opacity)} />
                 </div>
             </div>
         </div>
     );
 }
 
-export default ImagePairs;
+export default PdfPairs;

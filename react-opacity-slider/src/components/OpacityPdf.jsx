@@ -1,5 +1,4 @@
-
-const OpacityImage = ({src, opacity}) => {
+const OpacityPdf = ({src, opacity}) => {
     const style = { 
         opacity: opacity, 
         width: 200,
@@ -8,9 +7,9 @@ const OpacityImage = ({src, opacity}) => {
  
     return ( 
         <div className="opacity-image">
-            <img src={src} style={style} />       
+           Opacity Pdf       
         </div>
     );
 }
  
-export default OpacityImage;
+export default OpacityPdf;
