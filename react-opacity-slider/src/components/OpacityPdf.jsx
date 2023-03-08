@@ -7,9 +7,9 @@ const OpacityPdf = ({src, opacity}) => {
     };
  
     return ( 
-        <div className="opacity-image">
+        <div className="opacity-image" style={style}>
            <Document file={src}>
-                <Page pageNumber={1} style={style} /> 
+                <Page pageNumber={1}/> 
             </Document>    
         </div>
     );
