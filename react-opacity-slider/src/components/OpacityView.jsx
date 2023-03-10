@@ -54,7 +54,6 @@ const OpacityView = () => {
         }
 
         const data = Object.values(urls);
-        console.log(data);
         return data;
     };
   
@@ -68,12 +67,10 @@ const OpacityView = () => {
     }
 
     const onClickBack = () => {
-        console.log({imagePairIndex})
         setImagePairIndex(Math.max(0, imagePairIndex - 1));
     }
 
     const onClickForward = () => {
-        console.log({imagePairIndex})
         setImagePairIndex(Math.min(dataUrls.length - 1, imagePairIndex + 1));
     }
 
