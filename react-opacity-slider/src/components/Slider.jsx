@@ -6,8 +6,7 @@ import LastPageIcon from '@mui/icons-material/LastPage';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import PauseIcon from '@mui/icons-material/Pause';
 
-const OpacitySlider = ({opacity, onChange, onClickBack, onClickForward}) => {
-    const [isPlaying, setIsPlaying] = useState(false);
+const OpacitySlider = ({opacity, onChange, onClickBack, onClickForward, isPlaying, onTogglePlayPause}) => {
     
     return ( 
     <div className="opacity-slider" styles={styles.opacitySlider}>
@@ -16,7 +15,7 @@ const OpacitySlider = ({opacity, onChange, onClickBack, onClickForward}) => {
         </div>
         <div className="buttons" styles={styles.buttons}>
             <FirstPageIcon onClick={onClickBack}/>
-            {isPlaying ? <PauseIcon onClick={() => setIsPlaying(false)}/> : <PlayArrowIcon onClick={() => setIsPlaying(true)}/>}
+            {isPlaying ? <PauseIcon onClick={() => onTogglePlayPause(false)}/> : <PlayArrowIcon onClick={() => onTogglePlayPause(true)}/>}
             <LastPageIcon onClick={onClickForward}/>
         </div>
     </div>
