@@ -33,7 +33,6 @@ const OpacityView = () => {
             const isFile1 = fileName.endsWith('_1');
             const isFile2 = fileName.endsWith('_2');
             if (!isFile1 && !isFile2) {
-                console.log(`File ${fileName} is not a valid image pair`);
                 continue;
             }
 
@@ -43,14 +42,11 @@ const OpacityView = () => {
             //instanciate the object that will contain the dataUrls if it doesn't exist.
             urls[imgName] = !urls[imgName] ?  { fileName: imgName, fileType: file.type } : urls[imgName];
             if (isFile1) {
-                console.log({ isFile1, file: urls[imgName]});
                 urls[imgName].img1 = dataUrl;
             }
             if (isFile2) {
-                console.log({ isFile2, file: urls[imgName]});
                 urls[imgName].img2 = dataUrl;
             }
-            console.log({urls})
         }
 
         const data = Object.values(urls);
@@ -67,10 +63,12 @@ const OpacityView = () => {
     }
 
     const onClickBack = () => {
+        console.log(imagePairIndex);
         setImagePairIndex(Math.max(0, imagePairIndex - 1));
     }
 
     const onClickForward = () => {
+        console.log(imagePairIndex);
         setImagePairIndex(Math.min(dataUrls.length - 1, imagePairIndex + 1));
     }
 
