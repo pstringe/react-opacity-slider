@@ -106,7 +106,9 @@ const OpacityView = () => {
         dataUrls.length ? (
         <div className="image-interface" styles={styles.imageInterface}>
             {renderPairs(dataUrls[imagePairIndex], opacity)}
-            <Slider onChange={onSliderChange} 
+            <Slider
+            opacity={opacity} 
+            onChange={onSliderChange} 
             onClickBack={onClickBack} 
             onClickForward={onClickForward} 
             onTogglePlayPause={onClickPlayPause} 

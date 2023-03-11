@@ -15,7 +15,9 @@ const OpacitySlider = ({opacity, onChange, onClickBack, onClickForward, isPlayin
         </div>
         <div className="buttons" styles={styles.buttons}>
             <FirstPageIcon onClick={onClickBack}/>
-            {isPlaying ? <PauseIcon onClick={() => onTogglePlayPause(false)}/> : <PlayArrowIcon onClick={() => onTogglePlayPause(true)}/>}
+            {isPlaying ? 
+            <PauseIcon onClick={() => onTogglePlayPause(false)}/> : 
+            <PlayArrowIcon onClick={() => onTogglePlayPause(true)}/>}
             <LastPageIcon onClick={onClickForward}/>
         </div>
     </div>
