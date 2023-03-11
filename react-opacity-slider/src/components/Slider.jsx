@@ -11,7 +11,7 @@ const OpacitySlider = ({opacity, onChange, onClickBack, onClickForward, isPlayin
     return ( 
     <div className="opacity-slider" styles={styles.opacitySlider}>
         <div className="slider">
-            <Slider sx={{width: 200}} aria-label="Opacity" value={opacity} onChange={onChange} />
+            <Slider aria-label="Opacity" value={opacity} onChange={onChange} />
         </div>
         <div className="buttons" styles={styles.buttons}>
             <FirstPageIcon onClick={onClickBack}/>

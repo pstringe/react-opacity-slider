@@ -2,7 +2,7 @@
 const OpacityImage = ({src, opacity}) => {
     const style = { 
         opacity: opacity, 
-        maxWidth: 300,
+        width: '100%',
     };
  
     return ( 

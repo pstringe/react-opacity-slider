@@ -5,7 +5,11 @@ import OpacityView from './components/OpacityView';
 function App() {
   return (
     <div className="App">
-      <OpacityView />
+      <div style={{
+        width: '50%',
+      }}>
+        <OpacityView />
+      </div>
     </div>
   );
 }

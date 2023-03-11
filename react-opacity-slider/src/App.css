@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -21,10 +23,6 @@
 
 .annotationLayer{
   height: 0px !important;
-}
-
-.react-pdf__Page{
-  height: 500px;
 }
 
 .App-link {
