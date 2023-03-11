@@ -19,6 +19,14 @@
   color: white;
 }
 
+.annotationLayer{
+  height: 0px !important;
+}
+
+.react-pdf__Page{
+  height: 500px;
+}
+
 .App-link {
   color: #61dafb;
 }

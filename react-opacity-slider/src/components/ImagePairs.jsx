@@ -22,8 +22,6 @@ const overlayStyles = {
 const ImagePairs = ({ imagePair, opacity }) => {
     const transformation1 = (x) => (-x + 100) / 100;
     const transformation2 = (x) => x / 100;
-    console.log({imagePair, opacity});
-    console.log(imagePair.img1);
     return (
         <div className="image-pairs" style={imagePairStyles}>
             <div style={{ flex: 1, position: 'relative' }}>
