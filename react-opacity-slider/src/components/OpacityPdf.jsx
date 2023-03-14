@@ -1,4 +1,4 @@
-import {Document, Page} from 'react-pdf/dist/esm/entry.webpack5';
+import {Document, Page} from 'react-pdf';
 
 const OpacityPdf = ({src, opacity, width}) => {
     const style = { 
